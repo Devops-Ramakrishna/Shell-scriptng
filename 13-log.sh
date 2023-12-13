@@ -7,6 +7,8 @@ TIMESTAMP=$(date +%F-%H-%M-%S)
 
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
+echo " script started time is : $TIMESTAMP " &>> $LOGFILE
+
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
