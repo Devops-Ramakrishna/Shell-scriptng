@@ -4,6 +4,7 @@ ID=$(id -u)
 
 R="\e[31m"
 G="\e[32m"
+Y="\e[33m"
 N="\e[0m"
 
 VALIDATE(){
@@ -36,6 +37,8 @@ do
     then
         yum install $package -y
         VALIADTE $? "INSTALLATION OF $package"
+    else
+        echo -e " $package is already installed ... $Y SKIPPING $N "
 done
 
 
