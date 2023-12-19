@@ -31,18 +31,15 @@ fi # fi means reverse of fi, it indicating condition end
 
 # pre-checks of BMHOST
 
-VERSION=$(cat /etc/redhat-release)
-
-VALIDAT $? " Red Hat Enterprise Linux Server release 7.9 (Maipo) "
+UPDATE=$(yum update)
 
 if [ $VERSION -ne 0 ]
 then
-    echo " $R ERROR : run this script with RHEL 7.9 VERSION $N "
+    echo " $R ERROR : run this script with RHEL 7.9 VERSION upto date $N "
     exit 1 # you can give other than 0
 else
-    echo " you are RHEL 7.9 version "
+    echo " you are RHEL 7.9 version up to date "
 fi # fi means reverse of fi, it indicating condition end
-
 
 ping www.google.com
 
@@ -55,6 +52,20 @@ then
 else
     echo -e " Google is already pingable $Y SKIPPING $N"
 fi
+
+
+VERSION=$(cat /etc/redhat-release)
+
+VALIDAT $? " Red Hat Enterprise Linux Server release 7.9 (Maipo) "
+
+if [ $VERSION -ne 0 ]
+then
+    echo " $R ERROR : run this script with RHEL 7.9 VERSION $N "
+    exit 1 # you can give other than 0
+else
+    echo " you are RHEL 7.9 version "
+fi # fi means reverse of fi, it indicating condition end
+
 
 subscription-manager list --installed
 
